@@ -1,4 +1,6 @@
-class Rect : public Glyph
+#pragma once
+
+class Rect
 {
 private:
   /* data */

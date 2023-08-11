@@ -1,14 +1,18 @@
+#pragma once
+
 #include "glyph.hpp"
+#include "list"
 
 namespace Glyphs
 {
     class GlyphComposite : public Glyph
     {
     private:
-        /* data */
+        std::list<Glyph*> _glyphs;
     public:
+        virtual ~GlyphComposite();
+    protected:
         GlyphComposite(/* args */);
-        ~GlyphComposite();
     };
 } // namespace Glyphs
 

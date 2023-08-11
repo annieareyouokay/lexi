@@ -1,6 +1,9 @@
+#pragma once
+
 #include "window.hpp"
 #include "rectangle.hpp"
 #include "point.hpp"
+#include "compositor.hpp"
 
 namespace Glyphs
 {
@@ -8,20 +11,24 @@ namespace Glyphs
   {
   private:
     /* data */
-    Glyph* parent;
+    Glyph *parent;
+
   public:
-    Glyph(/* args */);
     ~Glyph();
 
     virtual void Draw(Window *);
     virtual void Bounds(Rect &);
     virtual bool Intersects(const Point &);
+
     virtual void Insert(Glyph *, int);
     virtual void Add(Glyph *);
     virtual void Remove(Glyph *);
+
     virtual Glyph *Child(int);
     virtual Glyph *Parent();
-    virtual void SetParent(Glyph *p) { Parent = p};
+
+  protected:
+    Glyph(Compositor *);
   };
 } // namespace Glyph
 
